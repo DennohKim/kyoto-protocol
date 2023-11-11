@@ -1,5 +1,6 @@
 'use client';
 
+import { Planting } from '@/interfaces/types';
 import React, {
   PropsWithChildren,
   SetStateAction,
@@ -12,7 +13,7 @@ import React, {
 export interface IAppDataContext {
   showInfoTab: boolean;
   setShowInfoTab: React.Dispatch<SetStateAction<boolean>>;
-  infoTabAsset: any;
+  infoTabAsset: Planting;
   setInfoTabAsset: React.Dispatch<SetStateAction<any>>;
 }
 
@@ -22,7 +23,7 @@ export const AppDataContext = createContext<IAppDataContext>(
 
 export const AppDataProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [showInfoTab, setShowInfoTab] = useState<boolean>(false);
-  const [infoTabAsset, setInfoTabAsset] = useState<any>({} as any);
+  const [infoTabAsset, setInfoTabAsset] = useState<Planting>({} as Planting);
 
   return (
     <AppDataContext.Provider

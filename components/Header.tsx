@@ -30,6 +30,14 @@ export default function Header() {
               </div>
               <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
                
+                <div className='hidden sm:ml-6 sm:flex sm:space-x-8'>
+                  <Link
+                    href='/'
+                    className='inline-flex items-center border-b-2 border-black px-1 pt-1 text-sm font-medium text-gray-900'
+                  >
+                    Tree Orders
+                  </Link>
+                </div>
                
               </div>
             </div>
@@ -37,7 +45,13 @@ export default function Header() {
 
           <Disclosure.Panel className='sm:hidden'>
             <div className='space-y-1 pt-2 pb-4'>
-        
+              <Disclosure.Button
+                as='a'
+                href='/'
+                className='block border-l-4 border-black py-2 pl-3 pr-4 text-base font-medium text-black'
+              >
+            Tree Orders
+              </Disclosure.Button>
              
               {/* Add here your custom menu elements */}
             </div>

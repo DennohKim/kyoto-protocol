@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter , Lexend} from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import { AppDataProvider } from '@/context/AppDataContext';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Lexend({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Kyoto Protocol',
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <AppDataProvider>
-          <div className='flex flex-col flex-nowrap relative h-full'>
+          <div className='flex flex-col w-full relative h-full'>
             <Header />
 
             <div className='flex w-full relative items-center overflow-y-auto'>

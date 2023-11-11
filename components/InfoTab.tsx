@@ -10,127 +10,78 @@ const InfoTab = () => {
 	  console.log(infoTabAsset)
 
   return (
-    <div className="">
-      <XMarkIcon
-        className='absolute right-4 w-8 h-8'
-        onClick={() => setShowInfoTab(false)}
-      />
+    <div className='flex flex-col flex-shrink w-96 sm:w-96 h-full p-2 z-50 cursor-pointer overflow-y-auto bg-white border-l border-black absolute bottom-0 max-h-[50%] transition-all duration-500 ease-in-out rounded-tl-lg rounded-tr-lg sm:relative sm:bottom-auto sm:max-h-full sm:z-10 sm:border-l'>
+      <section className='flex flex-wrap'>
+        <XMarkIcon
+          className='absolute right-4 w-8 h-8'
+          onClick={() => setShowInfoTab(false)}
+        />
 
-      {infoTabAsset &&  (
-        <>
-          <hr
-           
-            className=""
-          />
+        {infoTabAsset && (
+          <>
+            <hr className='border-t-2 mt-1 mb-2' />
 
-          <h1 className='text-2xl text-secondary m-0 mb-2 capitalize'>
-            {/* {infoTabAsset?.name ?? `${infoTabAsset?.species_common_name}`} */}
-          </h1>
+            <div className='flex flex-col'>
+              <h1 className='text-2xl font-semibold text-secondary m-0 mb-4 capitalize'>
+                {infoTabAsset?.client ?? `${infoTabAsset?.client_name}`}
+              </h1>
 
-          <div className='flex'>
-            <p className='capitalize text-base text-secondary'>
-              {/* {infoTabAsset?.type} */}
-            </p>
-            {
               <p className='text-base m-0 text-secondary'>
                 {' '}
-                {/* &#9679; Last Interaction:{' '}
-                {format(
-                  parseISO(getLastInteractionTimestamp(infoTabAsset)),
-                  'MM/dd/yy'
-                )} */}
+                &#9679; Request time: {infoTabAsset.request_date ?? '--'}
               </p>
-            }
-          </div>
-          <hr className="" />
-
-          <section className="">
-
-        
-           
-
-            {/* Add potential social section here */}
-          </section>
-
-          {(
-            <section className="">
-              <Image
-                src=""
-                width={40}
-                height={40}
-                color='#8cc63f'
-                alt='owner-icon'
-              />{' '}
-            </section>
-          )}
-
-          <h2 className="">User Information</h2>
-          <hr className="" />
-          <section className="">
-            <div className="">
-              <Image
-                src=""
-                width={40}
-                height={40}
-                color='#8cc63f'
-                alt='owner-icon'
-              />
-             
             </div>
+            <hr className='border-t-2 mt-1 mb-2' />
+            {
+              //   <section className=''>
+              //     <Image
+              //       src={infoTabAsset?.logo ?? ''}
+              //       width={40}
+              //       height={40}
+              //       color='#8cc63f'
+              //       alt='owner-icon'
+              //     />{' '}
+              //   </section>
+            }
+            <h2 className='font-bold text-md my-4'>
+              Tree planting Information
+            </h2>
+            <hr className='' />
 
-            
-          </section>
+            <hr className='border-t-2 mt-1 mb-2' />
+            <section className='flex flex-col space-y-2'>
+              <p className='m-0 text-gray-700'>
+                Client Name:{' '}
+                <span className='text-secondary text-gray-500 m-0'>
+                  {infoTabAsset.client_name ?? '--'}
+                </span>
+              </p>
 
-          <h2 className="">Properties</h2>
-          <hr className="" />
-          <section className="">
-            <p className='m-0 text-gray-500'>
-              Species:{' '}
-              <span className='text-secondary m-0'>
-                {/* {infoTabAsset.species_common_name ?? '--'} */}
-              </span>
-            </p>
-            <p className='m-0 text-gray-500'>
-              Name/ID:{' '}
-              <span className='text-secondary m-0'>
-                {/* {infoTabAsset.id ?? '--'} */}
-              </span>
-            </p>
-            <p className='m-0 text-gray-500'>
-              Stage of Life:{' '}
-              <span className='text-secondary m-0'>
-                {/* {infoTabAsset.start_stage ?? 'Tree Planting'} */}
-              </span>
-            </p>
-            <p className='m-0 text-gray-500'>
-              Coordinates:{' '}
-              {/* <span className='text-secondary m-0'>
-                {`${infoTabAsset?.coord?.lat.toFixed(
-                  5
-                )}, ${infoTabAsset?.coord?.lon.toFixed(5)}` ?? '--'}
-              </span> */}
-            </p>
-            
-            <p className='m-0 text-gray-500'>
-              Total Interactions:{' '}
-              <span className='text-secondary m-0'>
-                {/* {infoTabAsset.interactions?.length} */}
-              </span>
-            </p>
-          </section>
+              <p className='m-0 text-gray-700'>
+                Number of Propagules:{' '}
+                <span className='text-secondary text-gray-500 m-0'>
+                  {infoTabAsset.number_of_propagules ?? '--'}
+                </span>
+              </p>
 
-          <h2 className="">Environment</h2>
-          <hr className=""/>
-          <section className="">
-            <p className='m-0 text-gray-500'>
-              Height:{' '}
-              <span className='text-secondary m-0'>
-                {/* {infoTabAsset.height ?? '0'} {infoTabAsset.height_unit ?? 'm'} */}
-              </span>
-            </p>
-          </section>
-        </>
-      )}
+              <p className='m-0 text-gray-700 '>
+                Total Planted:{' '}
+                <span className='text-secondary text-gray-500 m-0'>
+                  {infoTabAsset.total_planted ?? '--'}
+                </span>
+              </p>
+              <p className='m-0 text-gray-700'>
+                Coordinates:{' '}
+                <span className='text-secondary text-gray-500 m-0'>
+                  {`${infoTabAsset?.latitude.toFixed(
+                    5
+                  )}, ${infoTabAsset?.longitude.toFixed(5)}` ?? '--'}
+                </span>
+              </p>
+            </section>
+          </>
+        )}
+      </section>
     </div>
   );
 }

@@ -16,7 +16,6 @@ import { useRef, useCallback } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import TreeIcon from '@/public/icons/forest.png';
 import data from '@/data/tree_orders2.json';
-import cities from '@/data/cities.json';
 import InfoTab from './InfoTab';
 import { Planting } from '@/interfaces/types';
 import Image from 'next/image';
@@ -27,18 +26,6 @@ const Mapbox = () => {
 
   const { setShowInfoTab, setInfoTabAsset, showInfoTab } = useAppDataContext();
 
-  const [popupInfo, setPopupInfo] = useState<Planting>({
-    request_date: '',
-    client: '',
-    logo: '',
-    number_of_propagules: 0,
-    latitude: 0,
-    longitude: 0,
-    thank_you_video: '',
-    client_name: '',
-    total_planted: 0,
-    id: 0,
-  });
 
   const pins = useMemo(
     () =>
@@ -57,7 +44,6 @@ const Mapbox = () => {
               cursor: 'pointer',
             }}
             onClick={(e) => {
-            //   setPopupInfo(info);
 			  setShowInfoTab(true);
 			  setInfoTabAsset(info);
 
