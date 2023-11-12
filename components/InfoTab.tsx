@@ -7,11 +7,9 @@ import React from 'react'
 const InfoTab = () => {
 	  const { setShowInfoTab, infoTabAsset, showInfoTab } = useAppDataContext();
 
-	  console.log(infoTabAsset)
-
   return (
-    <div className='flex flex-col flex-shrink w-96 sm:w-96 h-full p-2 z-50 cursor-pointer overflow-y-auto bg-white border-l border-black absolute bottom-0 max-h-[50%] transition-all duration-500 ease-in-out rounded-tl-lg rounded-tr-lg sm:relative sm:bottom-auto sm:max-h-full sm:z-10 sm:border-l'>
-      <section className='flex flex-wrap'>
+    <div className='flex flex-col flex-shrink w-full sm:w-96 h-full p-2 z-50 cursor-pointer overflow-y-auto bg-white border-l border-black absolute bottom-0 max-h-[50%] transition-all duration-500 ease-in-out rounded-tl-lg rounded-tr-lg sm:relative sm:bottom-auto sm:max-h-full sm:z-10 sm:border-l'>
+      <section className='flex flex-wrap '>
         <XMarkIcon
           className='absolute right-4 w-8 h-8'
           onClick={() => setShowInfoTab(false)}
@@ -21,7 +19,7 @@ const InfoTab = () => {
           <>
             <hr className='border-t-2 mt-1 mb-2' />
 
-            <div className='flex flex-col'>
+            <div className='flex flex-col w-4/5'>
               <h1 className='text-2xl font-semibold text-secondary m-0 mb-4 capitalize'>
                 {infoTabAsset?.client ?? `${infoTabAsset?.client_name}`}
               </h1>

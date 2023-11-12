@@ -26,7 +26,6 @@ const Mapbox = () => {
 
   const { setShowInfoTab, setInfoTabAsset, showInfoTab } = useAppDataContext();
 
-
   const pins = useMemo(
     () =>
       data?.map((info, index) => (
@@ -44,9 +43,15 @@ const Mapbox = () => {
               cursor: 'pointer',
             }}
             onClick={(e) => {
-			  setShowInfoTab(true);
-			  setInfoTabAsset(info);
-
+              setShowInfoTab(true);
+              setInfoTabAsset(info);
+              if (mapRef.current) {
+                mapRef.current.flyTo({
+                  center: [info.longitude, info.latitude],
+				  zoom: 16,
+                  essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+                });
+              }
             }}
           />
         </Marker>
@@ -57,6 +62,7 @@ const Mapbox = () => {
   return (
     <>
       <Map
+        ref={mapRef}
         initialViewState={{
           longitude: 39.507901,
           latitude: -4.4165,
@@ -73,7 +79,6 @@ const Mapbox = () => {
         <NavigationControl position='bottom-right' />
 
         {pins}
-
       </Map>
       {showInfoTab && <InfoTab />}
     </>

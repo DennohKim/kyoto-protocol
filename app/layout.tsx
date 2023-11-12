@@ -7,8 +7,8 @@ import { AppDataProvider } from '@/context/AppDataContext';
 const inter = Lexend({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Kyoto Protocol',
-  description: 'Kyoto Protocol',
+  title: 'Tree Orders',
+  description: 'Tree Orders',
 };
 
 export default function RootLayout({
